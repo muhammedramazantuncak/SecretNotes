@@ -68,7 +68,7 @@ placer(note_text,0.5,0.57)
 # girişleri alma
 
 def get_entries(argument):
-    if isinstance(argument,Entry):
+    if isinstance(argument,Entry): # class kontrolü yaptık
         return argument.get()
     elif isinstance(argument,Text):
         return argument.get("1.0","end-1c")
@@ -108,8 +108,6 @@ def decrypt_button():
                 note_text.insert(END, secret)
     except UnicodeError:
         messagebox.showerror("Attempts", "Too Many Attempts On Decrypt Button")
-    except KeyError:
-        messagebox.showerror("Error", "You Press Decrypt Button Before Encrypt The Text")
 
 def clear_button():
     note_text.delete(1.0,END)
