@@ -83,10 +83,10 @@ def encrypt_button():
         return
     secret = get_entries(note_text)
     secret = secret.encode("utf-8") # text'teki yazıları byte tipine dönüştürme
-    secret = pybase64.b64encode(secret).decode("utf-8") # base 64'e çevirme
+    secret = pybase64.b64encode(secret) # base 64'e çevirme
+    secret = secret.decode("utf-8")
     value = get_entries(password_entry)
     value_dict[secret] = value
-    print(value_dict)
     note_text.delete(1.0, END)  # text box temizleme
     note_text.insert(END,secret)
 
